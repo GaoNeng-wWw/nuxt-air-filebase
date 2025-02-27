@@ -27,14 +27,4 @@ export default defineNuxtConfig({
       include: ['~/types/*.d.ts'],
     },
   },
-  runtimeConfig: {
-    public: {
-      authorName: 'GaoNeng-wWw',
-      startYear: '2025',
-      license: {
-        title: 'CC BY-NC-SA 4.0',
-        url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-      },
-    },
-  },
 });

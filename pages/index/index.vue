@@ -9,6 +9,7 @@ const { posts, loadNextPage } = usePosts({ page, size });
 
 <template>
   <main class="w-full">
+    <lazy-introduction />
     <div class="w-full space-y-2">
       <post-item
         v-for="post of posts"
