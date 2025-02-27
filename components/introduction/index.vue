@@ -36,7 +36,7 @@ if (Array.isArray(configBio)) {
 </script>
 
 <template>
-  <div class="mb-8 flex w-full flex-col gap-8 px-2">
+  <div class="mb-8 flex w-full flex-col gap-8 px-2 pt-8">
     <div class="flex w-full gap-2">
       <div class="w-fit">
         <avatar-root class="flex size-24 overflow-hidden rounded-full">

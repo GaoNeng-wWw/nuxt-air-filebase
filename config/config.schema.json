@@ -3,6 +3,40 @@
   "$id": "SiteConfigSchema",
   "type": "object",
   "properties": {
+    "colors": {
+      "type": "object",
+      "properties": {
+        "dark": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "string"
+              },
+              "foreground": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "light": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "string"
+              },
+              "foreground": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "description": "主题色, 会随机选取"
+    },
     "authorName": {
       "type": "string",
       "description": "页脚显示的作者名"

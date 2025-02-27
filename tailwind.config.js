@@ -21,6 +21,10 @@ module.exports = {
         'default-50': 'hsla(var(--default-50))',
         'background': 'var(--background)',
         'foreground': 'hsl(var(--foreground))',
+        'primary': {
+          DEFAULT: 'hsla(var(--primary))',
+          foreground: 'hsla(var(--primary-foreground))',
+        },
       },
     },
   },
