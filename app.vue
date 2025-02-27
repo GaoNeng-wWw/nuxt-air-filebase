@@ -1,15 +1,16 @@
+<script lang="ts" setup>
+const { colors } = useAppConfig();
+const { value } = useColorMode();
+const colorMode = ref(value === 'dark' ? 'dark' : 'light');
+onMounted(() => {
+  const val = randomChioce(colors[colorMode.value as 'dark' | 'light']);
+  document.body.style.setProperty('--primary', val.default);
+  document.body.style.setProperty('--primary-foreground', val.foreground);
+});
+</script>
+
 <template>
-  <div class="size-full">
+  <div class="size-full bg-background">
     <nuxt-page />
   </div>
 </template>
-
-<style>
-html,body {
-  width: 100%;
-  padding: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-}
-</style>

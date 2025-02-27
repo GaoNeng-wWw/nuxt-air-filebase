@@ -8,7 +8,7 @@ export default withNuxt(
     javascript: {
       overrides: {
         'curly': 'off',
-        '@stylistic/brace-style': ['warn', '1tbs'],
+        '@stylistic/brace-style': ['warn', 'stroustrup'],
       },
     },
     vue: {

@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "SiteConfigSchema",
+  "type": "object",
+  "properties": {
+    "colors": {
+      "type": "object",
+      "properties": {
+        "dark": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "string"
+              },
+              "foreground": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "light": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "string"
+              },
+              "foreground": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "description": "主题色, 会随机选取"
+    },
+    "authorName": {
+      "type": "string",
+      "description": "页脚显示的作者名"
+    },
+    "startYear": {
+      "type": "string",
+      "description": "协议文件生效起始年份"
+    },
+    "introduction": {
+      "type": "object",
+      "properties": {
+        "authorName": {
+          "type": "string",
+          "description": "Banner 中作者名"
+        },
+        "avatar": {
+          "type": "string",
+          "description": "作者头像"
+        },
+        "bio": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "array", "items": { "type": "string" } }
+          ],
+          "description": "一句话自我介绍, 如果为数组则会随机选择一条"
+        },
+        "social": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "icon": {
+                "type": "string",
+                "description": "社交媒体的图标"
+              },
+              "link": {
+                "type": "string",
+                "description": "社交媒体连接"
+              }
+            },
+            "required": ["icon", "link"]
+          },
+          "description": "社交媒体"
+        }
+      },
+      "required": ["authorName", "avatar", "bio", "social"]
+    },
+    "license": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "展示在页脚的协议名称"
+        },
+        "url": {
+          "type": "string",
+          "description": "该协议的正文链接"
+        }
+      },
+      "required": ["title", "url"]
+    }
+  },
+  "required": ["authorName", "startYear", "introduction", "license"],
+  "additionalProperties": false
+}

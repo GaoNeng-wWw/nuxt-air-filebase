@@ -1,0 +1,35 @@
+{
+  "$schema": "config.schema.json",
+  "colors": {
+    "dark": [
+      {
+        "default": "229,100%,50%",
+        "foreground": "229deg 83.34% 81.99%"
+      },
+      {
+        "default": "245deg 27.41% 31.88%",
+        "foreground": "245deg 62.56% 81.47%"
+      }
+    ],
+    "light": []
+  },
+  "authorName": "GaoNeng-wWw",
+  "startYear": "2025",
+  "introduction": {
+    "authorName": "GaoNeng-wWw",
+    "avatar": "https://gaoneng-www.github.io/img/avatar.jpg",
+    "bio": [
+      "long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long text"
+    ],
+    "social": [
+      {
+        "icon": "GitHub",
+        "link": "https://github.com/GaoNeng-wWw"
+      }
+    ]
+  },
+  "license": {
+    "title": "CC BY-NC-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  }
+}
