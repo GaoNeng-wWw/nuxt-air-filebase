@@ -13,7 +13,11 @@ const { posts, loadNextPage } = usePosts({ page, size });
     <div class="w-full space-y-2">
       <post-item
         v-for="post of posts"
-        :key="post.id" :title="post.title" :categories="post.categories" :create-at="post.createAt"
+        :id="post.id"
+        :key="post.id"
+        :title="post.title"
+        :categories="post.categories"
+        :create-at="post.createAt"
       />
       <div v-intersection-observer="loadNextPage" class="w-full" />
     </div>

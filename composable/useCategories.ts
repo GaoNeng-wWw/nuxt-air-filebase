@@ -1,6 +1,6 @@
 export function useCategories() {
   const { data, status } = useAsyncData('categories', () => {
-    return queryCollection('blog').select('meta').all();
+    return queryCollection('post').select('meta').all();
   });
   const loading = computed(() => status.value === 'pending');
 
