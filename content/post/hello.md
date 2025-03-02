@@ -4,7 +4,7 @@ category:
   - 技术
 ---
 
-# Nuxt Air - filebase
+# Nuxt Air
 
 `Nuxt Air` 是一个由 nuxt 驱动的博客程序
 
@@ -20,14 +20,18 @@ category:
 3. c
 4. d
 
+## Youtube
+
+:::youtube{id=dQw4w9WgXcQ}
+:::
+
+## Bilibili Video Card
+
+:::bilibili{bvid=BV1GJ411x7h7}
+:::
+
 ## Grid
 
 |name|age|
 |:-:|:-:|
 |jack|18|
-
-## Katex
-
-$$
-\frac{-b \pm \sqrt{b^2-4ac}}{2a}
-$$
