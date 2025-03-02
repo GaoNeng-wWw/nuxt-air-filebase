@@ -18,11 +18,11 @@ export function usePosts({ page: _page, size: _size }: UsePosts) {
   const page = ref(_page);
   const size = ref(_size);
   const { data: count } = useAsyncData('count', async () => {
-    const handle = queryCollection('blog');
+    const handle = queryCollection('post');
     return await handle.count('*');
   });
   const { data, status, execute } = useAsyncData(async () => {
-    const handle = queryCollection('blog');
+    const handle = queryCollection('post');
     const posts = await handle.skip(
       size.value * (page.value - 1),
     )

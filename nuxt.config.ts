@@ -27,4 +27,25 @@ export default defineNuxtConfig({
       include: ['~/types/*.d.ts'],
     },
   },
+  content: {
+    build: {
+      markdown: {
+        remarkPlugins: { 'remark-math': {} },
+        rehypePlugins: { 'rehype-mathjax': {} },
+      },
+    },
+  },
+  vite: {
+    vue: {
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => {
+            const arrTags = ['semantics', 'mrow', 'msup', 'mi', 'math', 'mjxcontainer'];
+            const answ = arrTags.includes(tag.toLowerCase());
+            return answ;
+          },
+        },
+      },
+    },
+  },
 });
