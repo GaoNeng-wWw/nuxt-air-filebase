@@ -1,9 +1,11 @@
 <template>
-  <div class="mx-auto size-full max-w-screen-sm p-2">
+  <div class="w-full">
     <app-header class="z-10" />
-    <nuxt-page />
-    <footer>
-      <lazy-app-footer />
-    </footer>
+    <div class="mx-auto size-full max-w-screen-md px-2 pt-8">
+      <nuxt-page />
+      <footer>
+        <lazy-app-footer />
+      </footer>
+    </div>
   </div>
 </template>

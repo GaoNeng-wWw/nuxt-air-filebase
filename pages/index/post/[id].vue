@@ -9,7 +9,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="size-full pt-8">
+  <div class="size-full">
     <div class="size-full rounded-md p-4">
       <content-renderer
         v-if="data"
@@ -17,6 +17,7 @@ definePageMeta({
         class="
         prose
         prose-stone
+        max-w-full
         dark:prose-invert
         prose-headings:no-underline
         prose-headings:before:mr-2
