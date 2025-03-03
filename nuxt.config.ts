@@ -53,4 +53,17 @@ export default defineNuxtConfig({
     },
     throws: false,
   },
+  nitro: {
+    devStorage: {
+      redis: {
+        driver: 'fs',
+        base: '.tmp',
+      },
+    },
+    storage: {
+      redis: {
+        driver: 'vercel-kv',
+      },
+    },
+  },
 });

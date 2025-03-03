@@ -3,6 +3,9 @@ const route = useRoute();
 const path = route.path;
 
 const { data } = await useAsyncData(path, () => queryCollection('post').path(path).first());
+definePageMeta({
+  scrollToTop: true,
+});
 </script>
 
 <template>

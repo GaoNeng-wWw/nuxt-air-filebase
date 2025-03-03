@@ -8,6 +8,11 @@ category:
 
 `Nuxt Air` 是一个由 nuxt 驱动的博客程序
 
+## Pr Card
+
+:::pr{owner=GaoNeng-wWw repo=aha pullNumber=1}
+:::
+
 ## List
 
 - item
