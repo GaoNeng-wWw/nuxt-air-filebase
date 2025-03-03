@@ -46,5 +46,18 @@
     "scss",
     "pcss",
     "postcss"
+  ],
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class:list",
+    "exact-active-class",
+    "leave-active-class",
+    "enter-active-class",
+    "enter-from-class",
+    "enter-to-class",
+    "leave-from-class",
+    "leave-to-class"
   ]
 }

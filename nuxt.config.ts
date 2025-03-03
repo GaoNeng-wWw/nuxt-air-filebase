@@ -1,7 +1,11 @@
+// import type { BundledLanguage } from 'shiki/langs.mjs';
+// import { bundledLanguages } from 'shiki/langs.mjs';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   modules: [
+    'nuxt-content-twoslash',
     '@nuxt/content',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
@@ -9,6 +13,7 @@ export default defineNuxtConfig({
     'motion-v/nuxt',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
+    '@nuxt/image',
   ],
   eslint: {
     checker: true,
@@ -31,20 +36,33 @@ export default defineNuxtConfig({
     build: {
       markdown: {
         remarkPlugins: { 'remark-math': {} },
-        rehypePlugins: { 'rehype-mathjax': {} },
+        rehypePlugins: { 'rehype-katex': {} },
+        highlight: {
+          theme: {
+            default: 'material-theme-lighter',
+            dark: 'material-theme-palenight',
+          },
+        },
       },
     },
   },
-  vite: {
-    vue: {
-      template: {
-        compilerOptions: {
-          isCustomElement: (tag) => {
-            const arrTags = ['semantics', 'mrow', 'msup', 'mi', 'math', 'mjxcontainer'];
-            const answ = arrTags.includes(tag.toLowerCase());
-            return answ;
-          },
-        },
+  twoslash: {
+    enableInDev: true,
+    floatingVueOptions: {
+      classMarkdown: 'prose prose-stone dark:prose-invert',
+    },
+    throws: false,
+  },
+  nitro: {
+    devStorage: {
+      redis: {
+        driver: 'fs',
+        base: '.tmp',
+      },
+    },
+    storage: {
+      redis: {
+        driver: 'vercel-kv',
       },
     },
   },
