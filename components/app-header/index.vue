@@ -1,48 +1,31 @@
 <script lang="ts" setup>
+import { MenuIcon } from 'lucide-vue-next';
+import { DrawerContent, DrawerOverlay, DrawerPortal, DrawerRoot, DrawerTrigger } from 'vaul-vue';
 import { useCategories } from '~/composable/useCategories';
 
 const { categories } = useCategories();
 </script>
 
 <template>
-  <div
-    class="group sticky top-4 flex h-fit w-full items-center gap-1 rounded-full border border-default-700 bg-default-900/80 px-8 py-2 backdrop-blur-lg transition-all duration-700"
-  >
-    <nuxt-link to="/" exact-active-class="active relative overflow-hidden text-primary-foreground" class="rounded-full px-3 py-2">
-      首页
-    </nuxt-link>
-    <hover-card-root>
-      <hover-card-trigger>
-        <div class="cursor-pointer">
-          分类
-        </div>
-      </hover-card-trigger>
-      <hover-card-portal>
-        <animate-presence unwrap-element>
-          <hover-card-content as-child :side-offset="20" class="w-[150px] rounded-md border border-default-700 bg-default-900/70 backdrop-blur-sm">
-            <motion
-              as-child
-              :initial="{ opacity: 0, scale: 0.95 }"
-              :animate="{ opacity: 1, scale: 1 }"
-              :exit="{ opacity: 0, scale: 0.95 }"
-              :transition="{ duration: 0.3, ease: 'easeInOut' }"
-            >
-              <ul>
-                <li
-                  v-for="category, idx in categories" :key="idx"
-                  class="
-                    before:content relative
-                    w-full cursor-pointer py-3 text-center before:absolute before:left-0 before:top-0
-                    before:size-full before:opacity-0 before:transition-all hover:text-primary-foreground hover:before:bg-primary hover:before:opacity-10
-                  "
-                >
-                  {{ category }}
-                </li>
-              </ul>
-            </motion>
-          </hover-card-content>
-        </animate-presence>
-      </hover-card-portal>
-    </hover-card-root>
+  <div class="sticky top-0 w-full md:top-4 md:mx-auto md:max-w-screen-md">
+    <drawer-root as-child class="bg-default-950">
+      <div class="flex  w-full items-center bg-default-900 px-4 py-5 md:hidden">
+        <drawer-trigger>
+          <menu-icon />
+        </drawer-trigger>
+      </div>
+      <drawer-portal>
+        <drawer-overlay class="fixed inset-0 z-50 bg-black/50" />
+        <drawer-content class="fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col gap-4 rounded-t-[10px] border border-border bg-default-900 p-4">
+          <nuxt-link to="/" exact-active-class="text-primary-foreground">
+            首页
+          </nuxt-link>
+          <nuxt-link v-for="category, idx in categories" :key="idx" class="">
+            {{ category }}
+          </nuxt-link>
+        </drawer-content>
+      </drawer-portal>
+    </drawer-root>
+    <app-menu-desktop />
   </div>
 </template>
