@@ -35,3 +35,26 @@ category:
 |name|age|
 |:-:|:-:|
 |jack|18|
+
+## Image
+
+![Avatar](https://avatars.githubusercontent.com/u/31283122?v=4)
+
+## Code
+
+```ts
+console.log('hewwo'); // [!code --]
+console.log('hello'); // [!code ++]
+console.log('goodbye');
+```
+
+```ts
+console.log('Not focused');
+console.log('Focused'); // [!code focus]
+```
+
+## Katex
+
+$$
+\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$

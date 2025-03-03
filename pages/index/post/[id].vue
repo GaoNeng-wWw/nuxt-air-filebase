@@ -24,6 +24,8 @@ const { data } = await useAsyncData(path, () => queryCollection('post').path(pat
         prose-p:after:content-none
         prose-a:no-underline
         prose-blockquote:not-italic
+        prose-pre:block
+        prose-pre:prose-code:*:block
         prose-ul:prose-li:my-0
         "
       />
