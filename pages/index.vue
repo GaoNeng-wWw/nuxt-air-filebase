@@ -7,5 +7,8 @@
         <lazy-app-footer />
       </footer>
     </div>
+    <div class="fixed right-8 top-3/4 hidden size-fit md:block">
+      <app-color-switch />
+    </div>
   </div>
 </template>

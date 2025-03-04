@@ -19,10 +19,10 @@ function onScroll() {
   }
   const { top, height } = titleContainer.value.getBoundingClientRect();
   const y = top > 0 ? top : 0;
-  menuOpacity.value = menuOpacity.value = Math.min(
+  menuOpacity.value = Math.min(
     1,
     (y / height),
-  ).toFixed(3);
+  ).toFixed(2);
 }
 onMounted(() => {
   if (!titleContainer.value) {
