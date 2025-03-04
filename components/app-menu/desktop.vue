@@ -10,7 +10,7 @@ const { categories } = useCategories();
     border-default-700 bg-default-900/80 px-8 py-2 backdrop-blur-lg transition-all duration-700 md:flex
     "
   >
-    <nuxt-link to="/" exact-active-class="relative overflow-hidden text-primary-foreground" class="rounded-full px-3 py-2">
+    <nuxt-link to="/" exact-active-class="relative overflow-hidden text-indigo-500" class="rounded-full px-3 py-2">
       首页
     </nuxt-link>
     <hover-card-root>
@@ -36,8 +36,8 @@ const { categories } = useCategories();
                   :to="`/category/${category}`"
                   class="before:content relative block
                     w-full cursor-pointer py-3 text-center before:absolute before:left-0 before:top-0
-                    before:size-full before:opacity-0 before:transition-all hover:text-primary-foreground hover:before:bg-primary hover:before:opacity-10"
-                  exact-active-class="text-primary-foreground before:bg-primary before:opacity-10"
+                    before:size-full before:opacity-0 before:transition-all hover:text-indigo-500"
+                  exact-active-class="text-indigo-500 before:opacity-10"
                 >
                   <li
                     class="
