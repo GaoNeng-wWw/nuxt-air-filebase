@@ -2,7 +2,6 @@
 import type { HeaderContext } from '../app-header/index.vue';
 import { HashIcon, MenuIcon } from 'lucide-vue-next';
 import { DrawerContent, DrawerOverlay, DrawerPortal, DrawerRoot, DrawerTrigger } from 'vaul-vue';
-import { useCategories } from '~/composables/useCategories';
 
 const props = defineProps<{ class?: string }>();
 

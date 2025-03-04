@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { vIntersectionObserver } from '@vueuse/components';
-import { usePosts } from '~/composables/usePosts';
 
 const page = ref(1);
 const size = 10;

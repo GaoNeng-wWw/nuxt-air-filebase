@@ -1,54 +1,21 @@
 <script lang="ts" setup>
-const bio = ref('');
-const config = useAppConfig();
-
-const icons = await import('@/components/icon');
-
-const socialItems = config.introduction.social.map(({ icon, link }) => {
-  if (icon in icons) {
-    const iconComponent = icons[icon as keyof typeof icons];
-    return {
-      icon: iconComponent,
-      link,
-    };
-  }
-  return {
-    icon: null,
-    link,
-  };
-});
-
-const { data } = await useAsyncData('introduction', () => {
-  return queryCollection('introduction').first();
-});
-
-const configBio = config.introduction.bio;
-if (Array.isArray(configBio)) {
-  bio.value = randomChioce(configBio);
-} else if (isUrl(configBio)) {
-  $fetch<string>(configBio)
-    .then((value) => {
-      bio.value = value;
-    });
-} else {
-  bio.value = configBio;
-}
+const { author, bio, socialItems, data } = await useIntroduction();
 </script>
 
 <template>
   <div class="mb-8 flex w-full flex-col gap-8 px-2">
-    <div class="flex w-full gap-2">
+    <div v-if="author" class="flex w-full gap-2">
       <div class="w-fit">
         <avatar-root class="flex size-24 overflow-hidden rounded-full">
-          <avatar-image :src="config.introduction.avatar" class="size-24" />
+          <avatar-image :src="author.avatar ?? ''" class="size-24" />
           <avatar-fallback :delay-ms="600">
-            {{ config.introduction.authorName }}
+            {{ author.name }}
           </avatar-fallback>
         </avatar-root>
       </div>
       <div class="flex shrink-0 grow basis-0 flex-col justify-around gap-1">
         <h1 class="mt-0 h-fit break-words text-2xl leading-none">
-          {{ config.introduction.authorName }}
+          {{ author.name }}
         </h1>
         <p v-if="bio" class=" line-clamp-1 break-words">
           {{ bio }}
