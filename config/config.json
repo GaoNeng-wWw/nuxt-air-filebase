@@ -13,22 +13,9 @@
     ],
     "light": []
   },
-  "authorName": "GaoNeng-wWw",
-  "startYear": "2025",
-  "introduction": {
-    "authorName": "GaoNeng-wWw",
-    "avatar": "https://gaoneng-www.github.io/img/avatar.jpg",
-    "bio": [
-      "long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long text"
-    ],
-    "social": [
-      {
-        "icon": "GitHub",
-        "link": "https://github.com/GaoNeng-wWw"
-      }
-    ]
-  },
   "license": {
+    "startYear": "2025",
+    "name": "GaoNeng-wWw",
     "title": "CC BY-NC-SA 4.0",
     "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
   }

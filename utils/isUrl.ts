@@ -1,3 +1,3 @@
 export function isUrl(url: string): boolean {
-  return URL.parse(url) !== null;
+  return /^https?:\/\/(?:www\.)?[-\w@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b[-\w()@:%+.~#?&/=]*$/.test(url);
 }

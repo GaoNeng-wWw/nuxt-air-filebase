@@ -38,6 +38,19 @@ export default defineContentConfig({
     introduction: defineCollection({
       source: 'index.md',
       type: 'page',
+      schema: z.object({
+        author: z.object({
+          name: z.string(),
+          avatar: z.string(),
+          bio: z.string().optional(),
+          social: z.array(
+            z.object({
+              icon: z.string(),
+              link: z.string(),
+            }),
+          ),
+        }),
+      }),
     }),
   },
 });

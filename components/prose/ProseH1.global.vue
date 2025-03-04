@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { computed, useRuntimeConfig } from '#imports';
 import { HashIcon } from 'lucide-vue-next';
-import { useMenuOpacity } from '~/composables/useMenuOpacity';
-import { usePost } from '~/composables/usePost';
-import { usePostCategory } from '~/composables/usePostCategory';
-import { usePostTitle } from '~/composables/usePostTitle';
 
 const props = defineProps<{ id?: string }>();
 const route = useRoute();

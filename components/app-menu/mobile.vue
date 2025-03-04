@@ -2,13 +2,12 @@
 import type { HeaderContext } from '../app-header/index.vue';
 import { HashIcon, MenuIcon } from 'lucide-vue-next';
 import { DrawerContent, DrawerOverlay, DrawerPortal, DrawerRoot, DrawerTrigger } from 'vaul-vue';
-import { useCategories } from '~/composables/useCategories';
 
 const props = defineProps<{ class?: string }>();
 
 const { categories } = useCategories();
 
-const { postTitle, postOpacity, postCategories } = inject<HeaderContext>('header')!;
+const { postTitle, postOpacity, postCategories, isPostPage } = inject<HeaderContext>('header')!;
 </script>
 
 <template>
@@ -17,10 +16,12 @@ const { postTitle, postOpacity, postCategories } = inject<HeaderContext>('header
       <drawer-trigger>
         <menu-icon />
       </drawer-trigger>
-      <div :style="{ opacity: postOpacity }">
-        <h1 class="text-xl">
-          {{ postTitle }}
-        </h1>
+      <div v-if="isPostPage" :style="{ opacity: postOpacity }">
+        <motion as-child :initial="{ opacity: 0, y: 10 }" :animate="{ opacity: 1, y: 0 }" :transition="{ type: 'spring', duration: 0.3, delay: 0.05 }">
+          <h1 class="text-xl">
+            {{ postTitle }}
+          </h1>
+        </motion>
         <div v-for="category, idx in postCategories" :key="category" class="flex items-center gap-1">
           <hash-icon v-if="idx === 0" class="size-4" />
           <span class="text-sm">
