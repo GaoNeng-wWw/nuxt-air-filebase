@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { ChevronLeft } from 'lucide-vue-next';
+
 const route = useRoute();
 const path = route.path;
 
@@ -19,10 +21,12 @@ definePageMeta({
         prose-stone
         max-w-full
         dark:prose-invert
+        prose-headings:my-4
         prose-headings:no-underline
         prose-headings:before:mr-2
         prose-headings:before:text-default-600
         prose-headings:before:content-none
+        prose-h1:mb-0
         prose-p:my-0
         prose-p:before:content-none
         prose-p:after:content-none
@@ -33,6 +37,9 @@ definePageMeta({
         prose-ul:prose-li:my-0
         "
       />
+      <ui-button variant="ghost" size="icon" @click="$router.back">
+        <chevron-left class="size-4" />
+      </ui-button>
     </div>
   </div>
 </template>
