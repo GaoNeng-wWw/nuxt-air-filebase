@@ -7,7 +7,7 @@ const { categories } = useCategories();
     class="
     group hidden h-fit w-full items-center gap-1
     rounded-full border
-    border-default-700 bg-default-900/80 px-8 py-2 backdrop-blur-lg transition-all duration-700 md:flex
+    border-default-700 bg-default-900/80 px-8 py-2 backdrop-blur-lg transition-all duration-300 md:flex
     "
   >
     <nuxt-link to="/" exact-active-class="relative overflow-hidden text-primary-foreground" class="rounded-full px-3 py-2">
