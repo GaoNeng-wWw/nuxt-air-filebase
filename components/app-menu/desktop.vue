@@ -31,17 +31,24 @@ const { categories } = useCategories();
               :exit="{ opacity: 0, scale: 0.95 }"
               :transition="{ duration: 0.3, ease: 'easeInOut' }"
             >
-              <ul>
-                <li
-                  v-for="category, idx in categories" :key="idx"
-                  class="
-                    before:content relative
+              <ul class="space-y-2">
+                <nuxt-link
+                  v-for="category, idx in categories"
+                  :key="idx"
+                  :to="`/category/${category}`"
+                  class="before:content relative block
                     w-full cursor-pointer py-3 text-center before:absolute before:left-0 before:top-0
-                    before:size-full before:opacity-0 before:transition-all hover:text-primary-foreground hover:before:bg-primary hover:before:opacity-10
-                  "
+                    before:size-full before:opacity-0 before:transition-all hover:text-primary-foreground hover:before:bg-primary hover:before:opacity-10"
+                  exact-active-class="text-primary-foreground before:bg-primary before:opacity-10"
                 >
-                  {{ category }}
-                </li>
+                  <li
+                    class="
+
+                  "
+                  >
+                    {{ category }}
+                  </li>
+                </nuxt-link>
               </ul>
             </motion>
           </hover-card-content>

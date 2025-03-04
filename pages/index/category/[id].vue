@@ -1,15 +1,24 @@
 <script lang="ts" setup>
 import { vIntersectionObserver } from '@vueuse/components';
-import { usePosts } from '~/composables/usePosts';
 
-const page = ref(1);
-const size = 10;
-const { posts, loadNextPage } = usePosts({ page, size, category: null });
+const route = useRoute();
+const router = useRouter();
+const id = route.params.id.toString();
+if (!id) {
+  router.replace('/');
+}
+const page = ref(0);
+const size = ref(20);
+const { posts, status, loadNextPage } = usePosts({ page, size, category: id });
+watch(status, () => {
+  if (status.value === 'error') {
+    return router.replace('/');
+  }
+}, { immediate: true });
 </script>
 
 <template>
   <main class="w-full">
-    <lazy-introduction />
     <div class="w-full space-y-2">
       <post-item
         v-for="post of posts"
