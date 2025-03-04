@@ -34,7 +34,7 @@ provide('header', {
   <div :data-is-post="isPostPage" class="group sticky top-0 md:top-4 md:data-[is-post=false]:top-4">
     <div class="top-4 w-full md:mx-auto md:max-w-screen-md">
       <lazy-app-menu-mobile />
-      <lazy-app-menu-desktop :style="{ opacity: `${isPostPage ? opacity : 1}` }" />
+      <lazy-app-menu-desktop />
     </div>
     <div v-if="isPostPage && postOpacity > 0" class="fixed top-0 hidden h-fit min-h-20 w-full gap-2 bg-default-900 py-2 md:flex" :style="{ opacity: postOpacity }">
       <animate-presence multiple>
@@ -47,7 +47,7 @@ provide('header', {
             {{ postTitle }}
           </h1>
           <div class="w-full">
-            <motion as-child :initial="{ opacity: 0, y: 10 }" :animate="{ opacity: 1, y: 0 }" :transition="{ type: 'spring', duration: 0.3, delay: 0.05 }">
+            <motion as="div" :initial="{ opacity: 0, y: 10 }" :animate="{ opacity: 1, y: 0 }" :transition="{ type: 'spring', duration: 0.3, delay: 0.05 }">
               <div v-for="category, idx in postCategories" :key="category" class="flex items-center gap-1">
                 <hash-icon v-if="idx === 0" class="size-4" />
                 <span class="text-sm">
