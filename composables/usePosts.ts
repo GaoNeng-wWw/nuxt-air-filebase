@@ -1,6 +1,6 @@
-import type { BlogCollectionItem } from '@nuxt/content';
+import type { PostCollectionItem } from '@nuxt/content';
 
-export function toPost(record: BlogCollectionItem) {
+export function toPost(record: PostCollectionItem) {
   return {
     id: record.id,
     title: record.title,
@@ -12,6 +12,7 @@ export function toPost(record: BlogCollectionItem) {
 export interface UsePosts {
   page: MaybeRef<number>;
   size: MaybeRef<number>;
+  category: MaybeRef<string | null>;
 }
 
 export function usePosts({ page: _page, size: _size }: UsePosts) {
