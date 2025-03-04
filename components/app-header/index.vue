@@ -10,7 +10,7 @@ export interface HeaderContext {
 
 const postTitle = usePostTitle();
 const postCategories = usePostCategory();
-const opacity = useMenuOpacity();
+const opacity = useMenuOpacity('0.0');
 const postOpacity = computed(() => {
   if (!opacity.value) {
     return 0;
