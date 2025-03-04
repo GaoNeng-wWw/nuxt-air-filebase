@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useCategories } from '~/composable/useCategories';
+import { useCategories } from '~/composables/useCategories';
 
 const { categories } = useCategories();
 </script>
