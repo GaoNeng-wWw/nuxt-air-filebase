@@ -33,8 +33,8 @@ provide('header', {
 <template>
   <div :data-is-post="isPostPage" class="group sticky top-0 md:top-4 md:data-[is-post=false]:top-4">
     <div class="top-4 w-full md:mx-auto md:max-w-screen-md">
-      <app-menu-mobile />
-      <app-menu-desktop :style="{ opacity: `${isPostPage ? opacity : 1}` }" />
+      <lazy-app-menu-mobile />
+      <lazy-app-menu-desktop :style="{ opacity: `${isPostPage ? opacity : 1}` }" />
     </div>
     <div v-if="isPostPage && postOpacity > 0" class="fixed top-0 hidden h-fit min-h-20 w-full gap-2 bg-default-900 py-2 md:flex" :style="{ opacity: postOpacity }">
       <animate-presence multiple>
