@@ -7,7 +7,7 @@ const config = useAppConfig();
     <nuxt-link :to="config.license.url">
       {{ config.license.title }}
     </nuxt-link>
-    <span>{{ config.startYear }} - PRESENT  </span>
-    <span>&copy;{{ config.authorName }}</span>
+    <span>{{ config.license.startYear }} - PRESENT  </span>
+    <span>&copy;{{ config.license.name }}</span>
   </div>
 </template>
