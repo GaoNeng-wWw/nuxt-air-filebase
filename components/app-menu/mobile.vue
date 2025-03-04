@@ -35,7 +35,7 @@ const { postTitle, postOpacity, postCategories } = inject<HeaderContext>('header
         <nuxt-link to="/" exact-active-class="text-primary-foreground">
           首页
         </nuxt-link>
-        <nuxt-link v-for="category, idx in categories" :key="idx" class="">
+        <nuxt-link v-for="category, idx in categories" :key="idx" exact-active-class="text-primary-foreground" :to="`/category/${category}`">
           {{ category }}
         </nuxt-link>
       </drawer-content>
