@@ -20,7 +20,7 @@ body{
 }
 @layer base {
   :root {
-    --background: hsl(var(var(--default-300)));
+    --background: theme('colors.slate.50');
     --foreground: 20 14.3% 4.1%;
 
     --border:20 5.9% 90%;
@@ -60,10 +60,10 @@ body{
 
 @layer base {
   * {
-    @apply border-border;
+    /* @apply border-border;
     border-color: hsl(var(--border));
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--border)) transparent;
+    scrollbar-color: hsl(var(--border)) transparent; */
   }
   body {
     @apply bg-background text-foreground;

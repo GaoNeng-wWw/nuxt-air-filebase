@@ -50,7 +50,7 @@ function open() {
   <div class="group relative h-fit w-full">
     <popover-root :open="popoverShow">
       <popover-trigger class="absolute right-2 top-2 z-10" as-child @click="open">
-        <copy class="size-3.5 cursor-pointer text-default-950 opacity-0 transition-all group-hover:opacity-100 dark:text-default-50" @click="copyCode" />
+        <copy class="size-3.5 cursor-pointer text-default-50 opacity-0 transition-all group-hover:opacity-100" @click="copyCode" />
       </popover-trigger>
       <popover-portal>
         <animate-presence unwrap-element>
