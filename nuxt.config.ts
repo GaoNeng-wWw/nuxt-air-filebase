@@ -19,6 +19,20 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/image',
   ],
+  devtools: {
+    enabled: true,
+  },
+  ogImage: {
+    fonts: [
+      'Noto+Sans+SC:400',
+    ],
+  },
+  robots: {
+    allow: ['*'],
+  },
+  site: {
+    indexable: true,
+  },
   eslint: {
     checker: true,
     config: {

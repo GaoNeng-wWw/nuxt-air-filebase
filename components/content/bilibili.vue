@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const { bvid, p } = defineProps<{
   bvid: string;
-  p: number;
+  p?: number;
 }>();
 </script>
 

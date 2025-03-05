@@ -8,6 +8,7 @@ const { data } = await useAsyncData(path, () => queryCollection('post').path(pat
 definePageMeta({
   scrollToTop: true,
 });
+defineOgImageComponent('post', { title: computed(() => data.value?.title), categories: computed(() => data.value?.category) });
 </script>
 
 <template>
