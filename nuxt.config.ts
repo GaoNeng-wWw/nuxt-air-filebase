@@ -6,7 +6,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   modules: [
     'nuxt-content-twoslash',
+    'nuxt-site-config',
+    '@nuxtjs/seo',
+    '@nuxtjs/robots',
     '@nuxt/content',
+    '@nuxtjs/sitemap',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
     'reka-ui/nuxt',
