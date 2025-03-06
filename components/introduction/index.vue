@@ -5,7 +5,7 @@ useHeadSafe({
 });
 useSeoMeta({
   author: author.value?.name,
-  description: data.value?.description ?? '',
+  description: data.value?.description ?? bio.value ?? '',
 });
 </script>
 
