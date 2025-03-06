@@ -10,14 +10,17 @@ const { categories } = useCategories();
     border-default-700 bg-default-900/80 px-8 py-2 backdrop-blur-lg transition-all duration-300 md:flex
     "
   >
-    <nuxt-link to="/" exact-active-class="relative overflow-hidden text-primary-foreground" class="rounded-full px-3 py-2">
+    <nuxt-link to="/" exact-active-class="relative overflow-hidden text-rose-500 dark:text-rose-400" class="rounded-full px-3 py-2 font-medium transition hover:text-rose-400">
       首页
     </nuxt-link>
     <hover-card-root>
-      <hover-card-trigger>
-        <div class="cursor-pointer">
+      <hover-card-trigger as-child class="rounded-full px-3 py-2 font-medium transition">
+        <nuxt-link
+          :data-active="$route.path.includes('/category/')"
+          class="cursor-pointer hover:text-rose-400 data-[active=true]:text-rose-500 data-[active=true]:dark:text-rose-400"
+        >
           分类
-        </div>
+        </nuxt-link>
       </hover-card-trigger>
       <hover-card-portal>
         <animate-presence unwrap-element>
@@ -34,10 +37,11 @@ const { categories } = useCategories();
                   v-for="category, idx in categories"
                   :key="idx"
                   :to="`/category/${category}`"
-                  class="before:content relative block
-                    w-full cursor-pointer py-3 text-center before:absolute before:left-0 before:top-0
-                    before:size-full before:opacity-0 before:transition-all hover:text-primary-foreground hover:before:bg-primary hover:before:opacity-10"
-                  exact-active-class="text-primary-foreground before:bg-primary before:opacity-10"
+                  class="relative block
+                    w-full cursor-pointer py-3 text-center font-medium transition
+                  hover:text-rose-500
+                  "
+                  exact-active-class="text-rose-500 dark:text-rose-400"
                 >
                   <li
                     class="
