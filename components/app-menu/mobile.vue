@@ -34,13 +34,13 @@ const { postTitle, postOpacity, postCategories, isPostPage } = inject<HeaderCont
       <drawer-overlay class="fixed inset-0 z-50 bg-black/50" />
       <drawer-content class="fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col gap-4 rounded-t-[10px] border border-border bg-default-900 p-4">
         <div class="ml-auto mr-0 w-fit">
-          <app-color-switch />
+          <lazy-app-color-switch />
         </div>
         <div class="flex flex-col gap-4">
-          <nuxt-link to="/" exact-active-class="text-primary-foreground">
+          <nuxt-link to="/" class="hover:text-rose-400" exact-active-class="text-rose-500 dark:text-rose-400">
             首页
           </nuxt-link>
-          <nuxt-link v-for="category, idx in categories" :key="idx" exact-active-class="text-primary-foreground" :to="`/category/${category}`">
+          <nuxt-link v-for="category, idx in categories" :key="idx" class="hover:text-rose-400" exact-active-class="text-rose-500 dark:text-rose-400" :to="`/category/${category}`">
             {{ category }}
           </nuxt-link>
         </div>

@@ -12,9 +12,14 @@ const id = computed(() => props.id.split('/').at(-1)?.replace(/\..*/, ''));
 </script>
 
 <template>
-  <div class="prose w-full max-w-full cursor-pointer space-y-2 rounded-md px-2 py-3 transition hover:bg-default-900">
+  <div
+    class="
+    w-full max-w-full cursor-pointer space-y-2 rounded-md px-2 py-3 transition
+    hover:bg-default-800/50 prose-headings:no-underline
+  "
+  >
     <nuxt-link :href="`/post/${id}`">
-      <h1 class="mb-4 w-fit cursor-pointer rounded text-2xl leading-none dark:prose-invert">
+      <h1 class="mb-4 w-fit cursor-pointer rounded text-2xl leading-none">
         {{ title }}
       </h1>
       <div class="flex w-full flex-wrap justify-between gap-4 text-sm">
