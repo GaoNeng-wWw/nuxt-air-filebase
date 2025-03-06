@@ -6,7 +6,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   modules: [
     'nuxt-content-twoslash',
+    'nuxt-site-config',
+    '@nuxtjs/seo',
+    '@nuxtjs/robots',
     '@nuxt/content',
+    '@nuxtjs/sitemap',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
     'reka-ui/nuxt',
@@ -15,6 +19,20 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/image',
   ],
+  devtools: {
+    enabled: true,
+  },
+  ogImage: {
+    fonts: [
+      'Noto+Sans+SC:400',
+    ],
+  },
+  robots: {
+    allow: ['*'],
+  },
+  site: {
+    indexable: true,
+  },
   eslint: {
     checker: true,
     config: {

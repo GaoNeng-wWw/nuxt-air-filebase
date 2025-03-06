@@ -13,7 +13,7 @@ const { postTitle, postOpacity, postCategories, isPostPage } = inject<HeaderCont
 <template>
   <drawer-root as-child class="bg-default-950">
     <div :class="cn('flex w-full items-center bg-default-900 px-4 py-5 md:hidden gap-2', props.class)">
-      <drawer-trigger>
+      <drawer-trigger aria-label="菜单">
         <menu-icon />
       </drawer-trigger>
       <div v-if="isPostPage" :style="{ opacity: postOpacity }">

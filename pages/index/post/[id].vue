@@ -5,9 +5,15 @@ const route = useRoute();
 const path = route.path;
 
 const { data } = await useAsyncData(path, () => queryCollection('post').path(path).first());
+const { authorName } = useAppConfig();
+useSeoMeta({
+  author: authorName,
+  description: computed(() => data.value?.description ?? ''),
+});
 definePageMeta({
   scrollToTop: true,
 });
+defineOgImageComponent('post', { title: computed(() => data.value?.title), categories: computed(() => data.value?.category) });
 </script>
 
 <template>
@@ -37,7 +43,7 @@ definePageMeta({
         prose-ul:prose-li:my-0
         "
       />
-      <ui-button variant="ghost" size="icon" @click="$router.back">
+      <ui-button variant="ghost" size="icon" alt="返回" @click="$router.back">
         <chevron-left class="size-4" />
       </ui-button>
     </div>
