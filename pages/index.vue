@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+useHeadSafe({
+  htmlAttrs: {
+    lang: 'zh',
+  },
+});
+</script>
+
 <template>
   <div class="w-full">
     <app-header class="z-10" />

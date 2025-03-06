@@ -1,5 +1,12 @@
 <script lang="ts" setup>
 const { author, bio, socialItems, data } = await useIntroduction();
+useHeadSafe({
+  meta: [{ charset: 'utf-8' }],
+});
+useSeoMeta({
+  author: author.value?.name,
+  description: data.value?.description ?? '',
+});
 </script>
 
 <template>
@@ -7,7 +14,7 @@ const { author, bio, socialItems, data } = await useIntroduction();
     <div v-if="author" class="flex w-full gap-2">
       <div class="w-fit">
         <avatar-root class="flex size-24 overflow-hidden rounded-full">
-          <avatar-image :src="author.avatar ?? ''" class="size-24" />
+          <avatar-image :src="author.avatar ?? ''" class="size-24" :alt="author.name" />
           <avatar-fallback :delay-ms="600">
             {{ author.name }}
           </avatar-fallback>
