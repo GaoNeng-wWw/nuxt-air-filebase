@@ -16,7 +16,6 @@ const { categories } = useCategories();
     <hover-card-root>
       <hover-card-trigger as-child class="rounded-full px-3 py-2 font-medium transition">
         <nuxt-link
-          to="/category"
           :data-active="$route.path.includes('/category/')"
           class="cursor-pointer hover:text-rose-400 data-[active=true]:text-rose-500 data-[active=true]:dark:text-rose-400"
         >
