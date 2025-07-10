@@ -10,11 +10,11 @@ const { data, status } = useFetch('/api/pr', { query: { pullNumber, owner, repo 
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full max-w-full">
     <div v-if="status === 'idle' || status === 'pending'" class="mx-auto h-16 w-64 py-2">
       <ui-skeleton class="size-full" />
     </div>
-    <div class="max-w-1/2 mx-auto w-64 items-center justify-center gap-1.5 space-y-2 rounded-md bg-default-800 px-3 py-2">
+    <div class="max-w-1/2 mx-auto w-fit items-center justify-center gap-1.5 space-y-2 rounded-md bg-default-800 px-3 py-2">
       <nuxt-link v-if="status === 'success' && data" :to="data.link">
         <div class="flex items-center gap-2 overflow-auto">
           <div class="grow">
