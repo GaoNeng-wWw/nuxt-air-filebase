@@ -16,7 +16,9 @@ useHeadSafe({
       </footer>
     </div>
     <div class="fixed right-8 top-3/4 hidden size-fit md:block">
-      <lazy-app-color-switch />
+      <client-only>
+        <lazy-app-color-switch />
+      </client-only>
     </div>
   </div>
 </template>

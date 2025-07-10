@@ -28,6 +28,8 @@ provide('header', {
   postOpacity,
   isPostPage,
 });
+
+const isServer = import.meta.env.SSR;
 </script>
 
 <template>
@@ -36,7 +38,7 @@ provide('header', {
       <lazy-app-menu-mobile />
       <lazy-app-menu-desktop />
     </div>
-    <div v-if="isPostPage && postOpacity > 0" class="fixed top-0 hidden h-fit min-h-20 w-full gap-2 bg-default-900 py-2 md:flex" :style="{ opacity: postOpacity }">
+    <div v-if="isPostPage && postOpacity > 0 && !isServer" class="fixed top-0 hidden h-fit min-h-20 w-full gap-2 bg-default-900 py-2 md:flex" :style="{ opacity: postOpacity }">
       <animate-presence multiple>
         <motion
           v-if="postOpacity === 1" class="mx-auto flex w-full max-w-screen-md flex-col justify-center gap-2 px-4" :initial="{ opacity: 0, y: 10 }"
