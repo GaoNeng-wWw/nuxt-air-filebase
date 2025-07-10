@@ -32,8 +32,10 @@ useSeoMeta({
             <component :is="socialItem.icon" class="size-7 cursor-pointer" />
           </nuxt-link>
         </div>
+        <div>
+          <content-renderer v-if="data" :value="data" />
+        </div>
       </div>
     </div>
-    <content-renderer v-if="data" :value="data" />
   </div>
 </template>
