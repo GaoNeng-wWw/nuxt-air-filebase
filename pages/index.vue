@@ -8,7 +8,9 @@ useHeadSafe({
 
 <template>
   <div class="w-full">
-    <lazy-app-header class="z-10" />
+    <client-only>
+      <lazy-app-header class="z-10" />
+    </client-only>
     <div class="mx-auto size-full max-w-screen-md px-2 pt-8">
       <nuxt-page />
       <footer>

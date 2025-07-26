@@ -5,7 +5,7 @@ export function toPost(record: PostCollectionItem) {
     id: record.id,
     title: record.title,
     categories: (record.category ?? []) as string[],
-    createAt: formatDate((record.meta.createAt ?? Date.now().toString()) as string),
+    createAt: formatDate((record.createAt ?? Date.now().toString()) as string),
   };
 }
 
@@ -21,18 +21,20 @@ export function usePosts({ page: _page, size: _size, category }: UsePosts) {
   const { data: count } = useAsyncData('count', async () => {
     let handle = queryCollection('post');
     if (unref(category)) {
-      handle = handle.where('category', '<>', category);
+      handle = handle.where('category', 'LIKE', `%${unref(category)}%`);
     }
     return await handle.count('*');
   });
   const { data, status, execute, error } = useAsyncData(async () => {
     let handle = queryCollection('post');
-    handle = handle.skip(
-      size.value * (page.value - 1),
-    )
+    handle = handle
+      .order('createAt', 'DESC')
+      .skip(
+        size.value * (page.value - 1),
+      )
       .limit(size.value);
     if (unref(category)) {
-      handle = handle.where('category', '<>', category);
+      handle = handle.where('category', 'LIKE', `%${unref(category)}%`);
     }
     const posts = await handle.all();
     return posts;
@@ -41,8 +43,13 @@ export function usePosts({ page: _page, size: _size, category }: UsePosts) {
   });
   const posts: ComputedRef<Post[]> = computed((oldArray) => {
     const m = new Map();
-    return [...oldArray ?? [], ...data.value?.map(toPost) ?? []]
+    const postList = [...oldArray ?? [], ...data.value?.map(toPost) ?? []]
       .filter(post => !m.has(post.id) && m.set(post.id, 1));
+    const tag = unref(category);
+    if (tag) {
+      return postList.filter(post => post.categories.includes(tag));
+    }
+    return postList;
   });
 
   function loadNextPage() {

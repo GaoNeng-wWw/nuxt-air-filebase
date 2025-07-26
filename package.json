@@ -8,7 +8,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest"
   },
   "dependencies": {
     "@antfu/eslint-config": "^4.3.0",
@@ -38,11 +39,15 @@
     "octokit": "^4.1.2",
     "rehype-katex": "^7.0.1",
     "rehype-mathjax": "^7.1.0",
+    "rehype-stringify": "^10.0.1",
     "reka-ui": "^2.0.0",
     "remark-math": "^6.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-ref": "file:./markdown-plugins/remark-ref",
     "shiki": "^3.1.0",
     "tailwind-merge": "^3.0.2",
     "ufo": "^1.5.4",
+    "unified": "^11.0.5",
     "vaul-vue": "^0.3.0",
     "vite-plugin-eslint2": "^5.0.3",
     "vue": "latest",

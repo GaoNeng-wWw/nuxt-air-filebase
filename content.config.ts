@@ -3,6 +3,22 @@ import { asRobotsCollection } from '@nuxtjs/robots/content';
 import { asSitemapCollection } from '@nuxtjs/sitemap/content';
 import { z } from 'zod';
 
+export const paperSchema = z.array(
+  z.object({
+    id: z.string(),
+    author: z.string(),
+    title: z.string(),
+    journal: z.string(),
+    year: z.number(),
+    doi: z.string(),
+    url: z.string(),
+    volume: z.string(),
+    number: z.string(),
+    pages: z.string(),
+    issn: z.string(),
+  }),
+);
+
 export default defineContentConfig({
   collections: {
     post: defineCollection(
@@ -10,9 +26,11 @@ export default defineContentConfig({
         source: 'post/*.md',
         type: 'page',
         schema: z.object({
+          paper: paperSchema,
           path: z.string(),
           title: z.string(),
           description: z.string(),
+          createAt: z.any(),
           seo: z.intersection(
             z.object({
               title: z.string().optional(),
