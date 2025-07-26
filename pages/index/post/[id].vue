@@ -6,8 +6,9 @@ const path = route.path;
 
 const { data } = await useAsyncData(path, () => queryCollection('post').path(path).first());
 const { authorName } = useAppConfig();
+
 useSeoMeta({
-  author: authorName,
+  author: authorName as string,
   description: computed(() => data.value?.description ?? ''),
 });
 definePageMeta({
@@ -43,6 +44,7 @@ defineOgImageComponent('post', { title: computed(() => data.value?.title), categ
         prose-ul:prose-li:my-0
         "
       />
+      <app-bib v-if="data?.paper" :papers="data.paper" type="ama" />
       <ui-button variant="ghost" size="icon" alt="返回" @click="$router.back">
         <chevron-left class="size-4" />
       </ui-button>

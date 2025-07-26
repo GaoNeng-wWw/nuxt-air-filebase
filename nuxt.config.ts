@@ -53,8 +53,13 @@ export default defineNuxtConfig({
   content: {
     build: {
       markdown: {
-        remarkPlugins: { 'remark-math': {} },
-        rehypePlugins: { 'rehype-katex': {} },
+        remarkPlugins: {
+          'remark-math': {},
+          'remark-ref': {},
+        },
+        rehypePlugins: {
+          'rehype-katex': {},
+        },
         highlight: {
           theme: {
             default: 'material-theme-lighter',
